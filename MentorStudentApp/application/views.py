@@ -15,24 +15,24 @@ def home(request):
 @login_required
 def course(request, course):
     context = {
-        'course': Course.objects.filter(ime=course).first()
+        'course': Course.objects.filter(name=course).first()
     }
     return render(request, 'application/course.html', context)
 
 @login_required
 def courseEdit(request, course):
 
-    course = Course.objects.filter(ime=course).first()
-    data={"ime": course.ime, "kod": course.kod, "program": course.program, "bodovi": course.bodovi, "sem_redovni": course.sem_redovni, "sem_izvanredni": course.sem_izvanredni, "izborni": course.izborni}
+    course = Course.objects.filter(name=course).first()
+    data={"name": course.name, "code": course.code, "program": course.program, "points": course.points, "regularSemester": course.regularSemester, "irregularSemester": course.irregularSemester, "optional": course.optional}
 
     if request.method == 'POST':
-        form = courseForm(request.POST, instance=course)
+        form = CourseForm(request.POST, instance=course)
         if form.is_valid():
             form.save()
             messages.success(request, f'course uspješno promijenjen!')
             return redirect('courses')
     else:
-        form = courseForm(initial=data)
+        form = CourseForm(initial=data)
     context = {
         'form': form,
         'course': course
