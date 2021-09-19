@@ -3,7 +3,11 @@
     <h1>Students:</h1>
     {% for appUser in content %}
         {% if appUser.role.id == 1 %}
-            {{ appUser.email }} &nbsp; <a class="btn btn-outline-secondary" href="/studentEdit/{{ appUser.email }}">Upisni List</a>   <br>
+            {{ appUser.email }} &nbsp; <a class="btn btn-outline-secondary" href="/studentEdit/{{ appUser.email }}">Upisni List</a>  
+            {% if user.role.id == 3 %}
+                <a href="/editStudentAttributes/{{appUser.email}}"><b>Edit</b><a>
+            {% endif %}
+            <br>
         {% endif %}
     {% endfor %}
     {% if user.role.id == 3 %}

@@ -94,7 +94,7 @@ def mentorEdit(request, appUser):
     data={"email": appUser}
 
     if request.method == 'POST':
-        form = AppUserForm(request.POST, instance=appUser)
+        form = AppUserForm(request.POST, instance=mentor)
         if form.is_valid():
             form.save()
             messages.success(request, f'mentor uspješno promijenjen!')
@@ -106,6 +106,25 @@ def mentorEdit(request, appUser):
         'mentor': mentor
     }
     return render(request, 'application/mentorEdit.html', context)
+
+@login_required
+def editStudentAttributes(request, appUser):
+    student = AppUser.objects.filter(email=appUser).first()
+    data={"email": appUser}
+
+    if request.method == 'POST':
+        form = AppUserForm(request.POST, instance=student)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'student uspješno promijenjen!')
+            return redirect('students')
+    else:
+        form = AppUserForm(initial=data)
+    context = {
+        'form': form,
+        'student': student
+    }
+    return render(request, 'application/editStudentAttributes.html', context)
 
 @login_required
 def upisniList(request, appUser):

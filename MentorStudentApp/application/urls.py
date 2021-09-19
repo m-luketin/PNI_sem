@@ -11,6 +11,7 @@ urlpatterns = [
     path('addCourse/', views.addCourse, name="addCourse"),
     path('studentEdit/<appUser>/', views.studentEdit, name="studentEdit"),
     path('addStudent/', views.addStudent, name="addStudent"),
+    path('editStudentAttributes/<appUser>', views.editStudentAttributes, name="editStudentAttributes"),
     path('mentorEdit/<appUser>/', views.mentorEdit, name="mentorEdit"),
     path('add/<int:pk>/<int:cpk>/', views.add, name="add"),
     path('remove/<int:pk>/<int:cpk>/', views.remove, name="remove"),
