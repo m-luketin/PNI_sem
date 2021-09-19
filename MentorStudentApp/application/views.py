@@ -223,3 +223,15 @@ def courses(request):
 @login_required
 def failedEnrollment():
     pass
+
+@login_required
+def courseStudents(request, course):
+    courseObject = Course.objects.filter(name=course).first()
+    appUsers = AppUser.objects.filter(appusercourse__course_id = courseObject.id)
+
+    content = {
+        'title': "CourseStudents",
+        'content': appUsers
+    }
+    
+    return render(request, 'application/courseStudents.html', content)

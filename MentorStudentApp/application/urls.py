@@ -16,4 +16,5 @@ urlpatterns = [
     path('add/<int:pk>/<int:cpk>/', views.add, name="add"),
     path('remove/<int:pk>/<int:cpk>/', views.remove, name="remove"),
     path('passed/<int:pk>/<int:cpk>/', views.passed, name="passed"),
+    path('courseStudents/<course>/', views.courseStudents, name="courseStudents"),    
 ]
