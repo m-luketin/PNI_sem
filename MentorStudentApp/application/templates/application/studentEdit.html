@@ -20,11 +20,7 @@
                 {% for p in content %}
                     {% if p.id == appUserCourse.course_id and p.regularSemester == 1 %}
                         {{ p.name }} 
-                        {% if appUserCourse.isPassed %}
-                            PASSED
-                        {% else%}
-                            NOT PASSED YET
-                        {% endif %}
+                        {{ appUserCourse.status }}
                         <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
                             <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
                         <br>
@@ -36,13 +32,10 @@
             {% for appUserCourse in appUser.appusercourse_set.all %}
                 {% for p in content %}
                     {% if p.id == appUserCourse.course_id and p.regularSemester == 2 %}
-                                                {{ p.name }} 
-                        {% if appUserCourse.isPassed %}
-                            PASSED
-                        {% else%}
-                            NOT PASSED YET
-                        {% endif %} <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
-                            <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
+                        {{ p.name }} 
+                        {{ appUserCourse.status }}
+                        <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
+                        <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
                         <br>
                     {% endif %}
                 {% endfor %}
@@ -52,12 +45,9 @@
             {% for appUserCourse in appUser.appusercourse_set.all %}
                 {% for p in content %}
                     {% if p.id == appUserCourse.course_id and p.regularSemester == 3 %}
-                                                {{ p.name }} 
-                        {% if appUserCourse.isPassed %}
-                            PASSED
-                        {% else%}
-                            NOT PASSED YET
-                        {% endif %} <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
+                        {{ p.name }} 
+                        {{ appUserCourse.status }}
+                         <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
                             <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
                         <br>
                     {% endif %}
@@ -68,13 +58,10 @@
             {% for appUserCourse in appUser.appusercourse_set.all %}
                 {% for p in content %}
                     {% if p.id == appUserCourse.course_id and p.regularSemester == 4 %}
-                                                {{ p.name }} 
-                        {% if appUserCourse.isPassed %}
-                            PASSED
-                        {% else%}
-                            NOT PASSED YET
-                        {% endif %} <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
-                            <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
+                        {{ p.name }} 
+                        {{ appUserCourse.status }}
+                        <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
+                        <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
                         <br>
                     {% endif %}
                 {% endfor %}
@@ -84,13 +71,10 @@
             {% for appUserCourse in appUser.appusercourse_set.all %}
                 {% for p in content %}
                     {% if p.id == appUserCourse.course_id and p.regularSemester == 5 %}
-                                                {{ p.name }} 
-                        {% if appUserCourse.isPassed %}
-                            PASSED
-                        {% else%}
-                            NOT PASSED YET
-                        {% endif %} <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
-                            <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
+                        {{ p.name }} 
+                        {{ appUserCourse.status }}
+                        <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
+                        <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
                         <br>
                     {% endif %}
                 {% endfor %}
@@ -100,13 +84,10 @@
             {% for appUserCourse in appUser.appusercourse_set.all %}
                 {% for p in content %}
                     {% if p.id == appUserCourse.course_id and p.regularSemester == 6 %}
-                                                {{ p.name }} 
-                        {% if appUserCourse.isPassed %}
-                            PASSED
-                        {% else%}
-                            NOT PASSED YET
-                        {% endif %} <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
-                            <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
+                        {{ p.name }} 
+                        {{ appUserCourse.status }}
+                        <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
+                        <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
                         <br>
                     {% endif %}
                 {% endfor %}
@@ -118,13 +99,10 @@
             {% for appUserCourse in appUser.appusercourse_set.all %}
                 {% for p in content %}
                     {% if p.id == appUserCourse.course_id and p.irregularSemester == 1 %}
-                                                {{ p.name }} 
-                        {% if appUserCourse.isPassed %}
-                            PASSED
-                        {% else%}
-                            NOT PASSED YET
-                        {% endif %} <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
-                            <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
+                        {{ p.name }} 
+                        {{ appUserCourse.status }}
+                        <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
+                        <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
                         <br>
                     {% endif %}
                 {% endfor %}
@@ -134,14 +112,10 @@
             {% for appUserCourse in appUser.appusercourse_set.all %}
                 {% for p in content %}
                     {% if p.id == appUserCourse.course_id and p.irregularSemester == 2 %}
-                                                {{ p.name }} 
-                        {% if appUserCourse.isPassed %}
-                            PASSED
-                        {% else%}
-                            NOT PASSED YET
-                        {% endif %} <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
-                        
-                            <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
+                        {{ p.name }} 
+                        {{ appUserCourse.status }}
+                        <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
+                        <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
                         <br>
                     {% endif %}
                 {% endfor %}
@@ -151,14 +125,10 @@
             {% for appUserCourse in appUser.appusercourse_set.all %}
                 {% for p in content %}
                     {% if p.id == appUserCourse.course_id and p.irregularSemester == 3 %}
-                                                {{ p.name }} 
-                        {% if appUserCourse.isPassed %}
-                            PASSED
-                        {% else%}
-                            NOT PASSED YET
-                        {% endif %} <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
-                        
-                            <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
+                        {{ p.name }} 
+                        {{ appUserCourse.status }}
+                        <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
+                        <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
                         <br>
                     {% endif %}
                 {% endfor %}
@@ -168,14 +138,10 @@
             {% for appUserCourse in appUser.appusercourse_set.all %}
                 {% for p in content %}
                     {% if p.id == appUserCourse.course_id and p.irregularSemester == 4 %}
-                                                {{ p.name }} 
-                        {% if appUserCourse.isPassed %}
-                            PASSED
-                        {% else%}
-                            NOT PASSED YET
-                        {% endif %} <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
-                        
-                            <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
+                        {{ p.name }} 
+                        {{ appUserCourse.status }}
+                        <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
+                        <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
                         <br>
                     {% endif %}
                 {% endfor %}
@@ -185,14 +151,10 @@
             {% for appUserCourse in appUser.appusercourse_set.all %}
                 {% for p in content %}
                     {% if p.id == appUserCourse.course_id and p.irregularSemester == 5 %}
-                                                {{ p.name }} 
-                        {% if appUserCourse.isPassed %}
-                            PASSED
-                        {% else%}
-                            NOT PASSED YET
-                        {% endif %} <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
-                        
-                            <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
+                        {{ p.name }} 
+                        {{ appUserCourse.status }}
+                        <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
+                        <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
                         <br>
                     {% endif %}
                 {% endfor %}
@@ -202,14 +164,10 @@
             {% for appUserCourse in appUser.appusercourse_set.all %}
                 {% for p in content %}
                     {% if p.id == appUserCourse.course_id and p.irregularSemester == 6 %}
-                                                {{ p.name }} 
-                        {% if appUserCourse.isPassed %}
-                            PASSED
-                        {% else%}
-                            NOT PASSED YET
-                        {% endif %} <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
-                        
-                            <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
+                        {{ p.name }} 
+                        {{ appUserCourse.status }}
+                        <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
+                        <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
                         <br>
                     {% endif %}
                 {% endfor %}
@@ -219,14 +177,10 @@
             {% for appUserCourse in appUser.appusercourse_set.all %}
                 {% for p in content %}
                     {% if p.id == appUserCourse.course_id and p.irregularSemester == 7 %}
-                                                {{ p.name }} 
-                        {% if appUserCourse.isPassed %}
-                            PASSED
-                        {% else%}
-                            NOT PASSED YET
-                        {% endif %} <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
-                        
-                            <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
+                        {{ p.name }} 
+                        {{ appUserCourse.status }}
+                        <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
+                        <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
                         <br>
                     {% endif %}
                 {% endfor %}
@@ -236,21 +190,16 @@
             {% for appUserCourse in appUser.appusercourse_set.all %}
                 {% for p in content %}
                     {% if p.id == appUserCourse.course_id and p.irregularSemester == 8 %}
-                                                {{ p.name }} 
-                        {% if appUserCourse.isPassed %}
-                            PASSED
-                        {% else%}
-                            NOT PASSED YET
-                        {% endif %} <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
-                        
-                            <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
+                        {{ p.name }} 
+                        {{ appUserCourse.status }}
+                        <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
+                        <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
                         <br>
                     {% endif %}
                 {% endfor %}
             {% endfor %}
             <br>
             {% endif %}
-    
     
     <a href="{% url 'students' %}">Natrag</a>
 {% endblock content2%}

@@ -184,7 +184,7 @@ def passed(request, pk, cpk):
     course = Course.objects.get(id=cpk)
     email=appUser.email
     appUserCourse = AppUserCourse.objects.get(appUser=appUser, course=course)
-    appUserCourse.isPassed = True
+    appUserCourse.status = "Passed"
 
     try:
         appUserCourse.save()
@@ -228,13 +228,37 @@ def failedEnrollment():
 def courseStudents(request, course):
     courseObject = Course.objects.filter(name=course).first()
     appUsers = AppUser.objects.filter(appusercourse__course_id = courseObject.id)
-
+    appUserCourses = AppUserCourse.objects.filter(course_id=courseObject.id)
     content = {
         'title': "CourseStudents",
-        'content': appUsers
+        'content': appUsers,
+        'appUserCourses': appUserCourses
     }
 
     return render(request, 'application/courseStudents.html', content)
+
+def enrollStudent(request, course, pk, cpk, action):
+    courseObject = Course.objects.filter(name=course).first()
+    appUsers = AppUser.objects.filter(appusercourse__course_id = courseObject.id)
+    appUserCourses = AppUserCourse.objects.filter(course_id=courseObject.id)
+    content = {
+        'title': "CourseStudents",
+        'content': appUsers,
+        'appUserCourses': appUserCourses
+    }
+
+    appUser = AppUser.objects.get(id=pk)
+    course = Course.objects.get(id=cpk)
+    appUserCourse = AppUserCourse.objects.get(appUser=appUser, course=course)
+    appUserCourse.status = action
+
+    try:
+        appUserCourse.save()
+    except:
+        return render(request, 'application/courseStudents.html', content)
+
+    return render(request, 'application/courseStudents.html', content)
+
 
 @login_required
 def mentorCourses(request, mentor):
@@ -280,3 +304,11 @@ def mentorRemove(request, pk, cpk):
         return render(request, 'application/mentorCourses.html', content)
 
     return render(request, 'application/mentorCourses.html', content)
+
+@login_required
+def mentorPersonalCourses(request):
+    content ={
+        'content' : Course.objects.filter(professor_id=request.user.id)
+    }
+
+    return render(request, 'application/mentorPersonalCourses.html', content)

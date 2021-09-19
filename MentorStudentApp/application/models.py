@@ -150,9 +150,9 @@ class Course(models.Model):
 class AppUserCourse(models.Model):
     appUser = models.ForeignKey('AppUser', models.DO_NOTHING)
     course = models.ForeignKey('Course', models.DO_NOTHING)
-    isPassed = models.BooleanField(default=False)
+    status = models.TextField(default="Enrolled")
 
     def __str__(self):
-        return (self.appUser.email + " " + self.course.name + "(" + self.isPassed + ")")
+        return (self.appUser.email + " " + self.course.name + "(" + self.status + ")")
     class Meta:
         db_table = 'AppUserCourse'

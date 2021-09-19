@@ -40,6 +40,7 @@
 
                 {% elif user.is_authenticated and user.role.id == 2 %}
                   <a class="nav-item nav-link" href="{% url 'courses' %}">Courses</a>
+                  <a class="nav-item nav-link" href="{% url 'mentorPersonalCourses' %}">My Courses</a>
                   <a class="nav-item nav-link" href="{% url 'students' %}">Students</a>
                   <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
 
