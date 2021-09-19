@@ -130,7 +130,6 @@ class AppUser(AbstractUser):
     class Meta:
         db_table = 'AppUser'
 
-
 class Course(models.Model):
     name = models.CharField(max_length=255)
     code = models.CharField(max_length=16)
@@ -139,6 +138,7 @@ class Course(models.Model):
     regularSemester = models.IntegerField()
     irregularSemester = models.IntegerField()
     optional = models.BooleanField()
+    professor = models.ForeignKey('AppUser', models.DO_NOTHING, default=None, blank=True, null=True)
 
     def __str__(self):
         return self.name

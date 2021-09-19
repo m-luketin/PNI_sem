@@ -233,5 +233,50 @@ def courseStudents(request, course):
         'title': "CourseStudents",
         'content': appUsers
     }
-    
+
     return render(request, 'application/courseStudents.html', content)
+
+@login_required
+def mentorCourses(request, mentor):
+    content ={
+        'appUser' : AppUser.objects.filter(email=mentor).first(),
+        'content' : Course.objects.all()
+    }
+
+    return render(request, 'application/mentorCourses.html', content)
+
+def mentorAdd(request, pk, cpk):
+    content ={
+        'appUser' : AppUser.objects.filter(id=pk).first(),
+        'content' : Course.objects.all(),
+        'fail': 0
+    }
+    
+    appUser = AppUser.objects.filter(id=pk).first()
+    course = Course.objects.get(id=cpk)
+
+    course.professor_id = pk
+
+    try:
+        course.save()
+    except:
+        return render(request, 'application/mentorCourses.html', content)
+
+    return render(request, 'application/mentorCourses.html', content)
+
+def mentorRemove(request, pk, cpk):
+    content ={
+        'appUser' : AppUser.objects.filter(id=pk).first(),
+        'content' : Course.objects.all(),
+        'fail': 0
+    }
+    
+    course = Course.objects.get(id=cpk)
+    course.professor_id = None
+
+    try:
+        course.save()
+    except:
+        return render(request, 'application/mentorCourses.html', content)
+
+    return render(request, 'application/mentorCourses.html', content)

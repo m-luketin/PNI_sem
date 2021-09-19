@@ -16,5 +16,9 @@ urlpatterns = [
     path('add/<int:pk>/<int:cpk>/', views.add, name="add"),
     path('remove/<int:pk>/<int:cpk>/', views.remove, name="remove"),
     path('passed/<int:pk>/<int:cpk>/', views.passed, name="passed"),
+    path('mentorCourses/<mentor>/', views.mentorCourses, name="mentorCourses"),
     path('courseStudents/<course>/', views.courseStudents, name="courseStudents"),    
+    path('mentorAdd/<int:pk>/<int:cpk>/', views.mentorAdd, name="mentorAdd"),
+    path('mentorRemove/<int:pk>/<int:cpk>/', views.mentorRemove, name="mentorRemove"),
+    path('mentorPersonalCourses', views.mentorPersonalCourses, name="mentorPersonalCourses"),
 ]
