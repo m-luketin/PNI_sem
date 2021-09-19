@@ -66,21 +66,14 @@ def add(request, pk, cpk):
         'content' : Course.objects.all(),
         'fail': 0
     }
-    student = AppUser.objects.get(id=pk)
+    appUser = AppUser.objects.get(id=pk)
     course = Course.objects.get(id=cpk)
-    if (cpk==49):
-        oop = AppUserCourse.objects.filter(student_id=pk,course_id=20).first()
-        if ( oop is None or oop.status != 'passed'):
-            content = {
-                'AppUserCourse' : AppUserCourse.objects.all(),
-                'appUser' : AppUser.objects.filter(id=pk).first(),
-                'content' : Course.objects.all(),
-                'fail': 1
-            }
-            return render(request, 'application/studentEdit.html', content)
 
-    email=student.email
-    appUserCourse = AppUserCourse(student=student, course=course, status='enrolled')
+    if (AppUserCourse.objects.filter(appUser_id=appUser.id, course_id=course.id).exists()):
+        return render(request, 'application/studentEdit.html', content)
+
+    email=appUser.email
+    appUserCourse = AppUserCourse(appUser=appUser, course=course)
     try:
         appUserCourse.save()
     except:
@@ -94,11 +87,11 @@ def remove(request, pk, cpk):
         'appUser' : AppUser.objects.filter(id=pk).first(),
         'content' : Course.objects.all()
     }
-    student = AppUser.objects.get(id=pk)
+    appUser = AppUser.objects.get(id=pk)
     course = Course.objects.get(id=cpk)
-    email=student.email
+    email=appUser.email
     try:
-        AppUserCourse.objects.filter(student=student, course=course).delete()
+        AppUserCourse.objects.filter(appUser=appUser, course=course).delete()
     except:
         return render(request, 'application/studentEdit.html', content)
 
@@ -110,11 +103,12 @@ def passed(request, pk, cpk):
         'appUser' : AppUser.objects.filter(id=pk).first(),
         'content' : Course.objects.all()
     }
-    student = AppUser.objects.get(id=pk)
+    appUser = AppUser.objects.get(id=pk)
     course = Course.objects.get(id=cpk)
-    email=student.email
-    appUserCourse = AppUserCourse.objects.get(student=student, course=course)
-    appUserCourse.status='passed'
+    email=appUser.email
+    appUserCourse = AppUserCourse.objects.get(appUser=appUser, course=course)
+    appUserCourse.isPassed = True
+
     try:
         appUserCourse.save()
     except:
