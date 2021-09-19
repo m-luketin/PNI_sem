@@ -1,0 +1,193 @@
+{% extends "application/base.html" %}
+{% block content %}
+    {% if fail == 1 %}
+        <h3>Error entering course</h3><br>
+        Potrebno je prethodno poloziti Objektno Programiranje<br>
+    {% endif %}
+    <h2>Lista coursea:</h2>
+    {% for course in content %}
+        {{ course.ime }}  <a class="btn btn-outline-secondary" href="{% url 'add' pk=appUser.id cpk=course.id %}">Add</a><br>
+    {% endfor %}
+    
+{% endblock content %}
+
+{% block content2 %}
+    <h2>appUserCoursei ({{ appUser.email }})</h2>
+    
+            {% if appUser.status == 'Redovni' %}
+            <h4>1. Semestar:</h4>
+            {% for appUserCourse in appUser.appUserCoursei_set.all %}
+                {% for p in content %}
+                    {% if p.id == appUserCourse.course_id and p.regularSemester == 1 %}
+                        {{ p.ime }} ({{ appUserCourse.status }}) <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
+                        {% if appUserCourse.status == 'enrolled' %}
+                            <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
+                        {% endif %}
+                        <br>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+            <br>
+            <h4>2. Semestar:</h4>
+            {% for appUserCourse in appUser.appUserCoursei_set.all %}
+                {% for p in content %}
+                    {% if p.id == appUserCourse.course_id and p.regularSemester == 2 %}
+                        {{ p.ime }} ({{ appUserCourse.status }}) <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
+                        {% if appUserCourse.status == 'enrolled' %}
+                            <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
+                        {% endif %}<br>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+            <br>
+            <h4>3. Semestar:</h4>
+            {% for appUserCourse in appUser.appUserCoursei_set.all %}
+                {% for p in content %}
+                    {% if p.id == appUserCourse.course_id and p.regularSemester == 3 %}
+                        {{ p.ime }} ({{ appUserCourse.status }}) <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
+                        {% if appUserCourse.status == 'enrolled' %}
+                            <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
+                        {% endif %}<br>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+            <br>
+            <h4>4. Semestar:</h4>
+            {% for appUserCourse in appUser.appUserCoursei_set.all %}
+                {% for p in content %}
+                    {% if p.id == appUserCourse.course_id and p.regularSemester == 4 %}
+                        {{ p.ime }} ({{ appUserCourse.status }}) <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
+                        {% if appUserCourse.status == 'enrolled' %}
+                            <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
+                        {% endif %}<br>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+            <br>
+            <h4>5. Semestar:</h4>
+            {% for appUserCourse in appUser.appUserCoursei_set.all %}
+                {% for p in content %}
+                    {% if p.id == appUserCourse.course_id and p.regularSemester == 5 %}
+                        {{ p.ime }} ({{ appUserCourse.status }}) <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
+                        {% if appUserCourse.status == 'enrolled' %}
+                            <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
+                        {% endif %}<br>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+            <br>
+            <h4>6. Semestar:</h4>
+            {% for appUserCourse in appUser.appUserCoursei_set.all %}
+                {% for p in content %}
+                    {% if p.id == appUserCourse.course_id and p.regularSemester == 6 %}
+                        {{ p.ime }} ({{ appUserCourse.status }}) <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
+                        {% if appUserCourse.status == 'enrolled' %}
+                            <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
+                        {% endif %}<br>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+            <br>
+            
+            {% elif appUser.status == 'Izvanredni' %}
+            <h4>1. Semestar:</h4>
+            {% for appUserCourse in appUser.appUserCoursei_set.all %}
+                {% for p in content %}
+                    {% if p.id == appUserCourse.course_id and p.sem_izvanredni == 1 %}
+                        {{ p.ime }} ({{ appUserCourse.status }}) <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
+                        {% if appUserCourse.status == 'enrolled' %}
+                            <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
+                        {% endif %}<br>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+            <br>
+            <h4>2. Semestar:</h4>
+            {% for appUserCourse in appUser.appUserCoursei_set.all %}
+                {% for p in content %}
+                    {% if p.id == appUserCourse.course_id and p.sem_izvanredni == 2 %}
+                        {{ p.ime }} ({{ appUserCourse.status }}) <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
+                        {% if appUserCourse.status == 'enrolled' %}
+                            <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
+                        {% endif %}<br>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+            <br>
+            <h4>3. Semestar:</h4>
+            {% for appUserCourse in appUser.appUserCoursei_set.all %}
+                {% for p in content %}
+                    {% if p.id == appUserCourse.course_id and p.sem_izvanredni == 3 %}
+                        {{ p.ime }} ({{ appUserCourse.status }}) <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
+                        {% if appUserCourse.status == 'enrolled' %}
+                            <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
+                        {% endif %}<br>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+            <br>
+            <h4>4. Semestar:</h4>
+            {% for appUserCourse in appUser.appUserCoursei_set.all %}
+                {% for p in content %}
+                    {% if p.id == appUserCourse.course_id and p.sem_izvanredni == 4 %}
+                        {{ p.ime }} ({{ appUserCourse.status }}) <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
+                        {% if appUserCourse.status == 'enrolled' %}
+                            <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
+                        {% endif %}<br>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+            <br>
+            <h4>5. Semestar:</h4>
+            {% for appUserCourse in appUser.appUserCoursei_set.all %}
+                {% for p in content %}
+                    {% if p.id == appUserCourse.course_id and p.sem_izvanredni == 5 %}
+                        {{ p.ime }} ({{ appUserCourse.status }}) <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
+                        {% if appUserCourse.status == 'enrolled' %}
+                            <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
+                        {% endif %}<br>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+            <br>
+            <h4>6. Semestar:</h4>
+            {% for appUserCourse in appUser.appUserCoursei_set.all %}
+                {% for p in content %}
+                    {% if p.id == appUserCourse.course_id and p.sem_izvanredni == 6 %}
+                        {{ p.ime }} ({{ appUserCourse.status }}) <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
+                        {% if appUserCourse.status == 'enrolled' %}
+                            <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
+                        {% endif %}<br>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+            <br>
+            <h4>7. Semestar:</h4>
+            {% for appUserCourse in appUser.appUserCoursei_set.all %}
+                {% for p in content %}
+                    {% if p.id == appUserCourse.course_id and p.sem_izvanredni == 7 %}
+                        {{ p.ime }} ({{ appUserCourse.status }}) <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
+                        {% if appUserCourse.status == 'enrolled' %}
+                            <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
+                        {% endif %}<br>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+            <br>
+            <h4>8. Semestar:</h4>
+            {% for appUserCourse in appUser.appUserCoursei_set.all %}
+                {% for p in content %}
+                    {% if p.id == appUserCourse.course_id and p.sem_izvanredni == 8 %}
+                        {{ p.ime }} ({{ appUserCourse.status }}) <a class="btn btn-outline-secondary" href="{% url 'remove' pk=appUser.id cpk=appUserCourse.course_id %}">Remove</a>
+                        {% if appUserCourse.status == 'enrolled' %}
+                            <a class="btn btn-outline-secondary" href="{% url 'passed' pk=appUser.id cpk=appUserCourse.course_id %}">Passed</a>
+                        {% endif %}<br>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+            <br>
+            {% endif %}
+    
+    
+    <a href="{% url 'students' %}">Natrag</a>
+{% endblock content2%}

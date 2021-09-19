@@ -1,0 +1,7 @@
+{% extends "application/base.html" %}
+{% block content %}
+    <h1>Courselist:</h1>
+    {% for course in content %}
+        {{ course.ime }} ({{ course.kod }}) &nbsp; <a class="btn btn-outline-secondary" href="/course/{{ course }}">Details</a> &nbsp; <a class="btn btn-outline-secondary" href="/courseEdit/{{ course }}">Edit</a>   <br>
+    {% endfor %}
+{% endblock content %}

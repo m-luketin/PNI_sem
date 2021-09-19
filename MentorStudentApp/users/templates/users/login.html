@@ -1,0 +1,14 @@
+{% extends "application/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <form method='POST'>
+        {% csrf_token %}
+        {{ form|crispy }}
+        
+        <button type='submit'>Prijava</button>
+        <div>
+            <br>
+            <small>Nemate račun? <a href="{% url 'register' %}">Registracija</a></small>
+        </div>
+    </form>
+{% endblock content %}

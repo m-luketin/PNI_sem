@@ -1,0 +1,12 @@
+{% extends "application/base.html" %}
+{% block content %}
+    <h3>Naziv: {{ course.name }}</h3>
+    <h4>Kod: {{ course.code }}</h4>
+    <h5>Program: {{ course.program }}</h5>
+    <h5>Bodovi: {{ course.points }} ECTS</h5>
+    <h5>Izborni: {{ course.optional }}</h5>
+    <h5>Semestar redovni: {{ course.regularSemester }}</h5>
+    <h5>Semestar izvanredni: {{ course.irregularSemester }}</h5>
+
+    <a href="{% url 'courses' %}">Natrag</a>
+{% endblock content %}

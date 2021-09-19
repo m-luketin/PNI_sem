@@ -1,0 +1,9 @@
+{% extends "application/base.html" %}
+{% block content %}
+    <h1>Lista studenata:</h1>
+    {% for appUser in content %}
+        {% if appUser.role.name != "Mentor" %}
+            {{ appUser.email }} &nbsp; <a class="btn btn-outline-secondary" href="/studentEdit/{{ appUser.email }}">Upisni List</a>   <br>
+        {% endif %}
+    {% endfor %}
+{% endblock content %}

@@ -1,0 +1,108 @@
+[
+    {
+        "model": "application.AppUser",
+        "pk": 5,
+        "fields": {
+            "email": "neki1@redovni.com",
+            "password": "pbkdf2_sha256$216000$fXPZyKBKWlR7$vd2TOqmwzDrbgfrGPCAyeyJ3a8LClDl7HsVEqxOQBIM=",
+            "role": 1,
+            "isIrregular": 0
+        }
+    },
+    {
+        "model": "application.AppUser",
+        "pk": 2,
+        "fields": {
+            "email": "neki1@vanredni.com",
+            "password": "pbkdf2_sha256$216000$fXPZyKBKWlR7$vd2TOqmwzDrbgfrGPCAyeyJ3a8LClDl7HsVEqxOQBIM=",
+            "role": 1,
+            "isIrregular": 1
+        }
+    },
+    {
+        "model": "application.AppUser",
+        "pk": 3,
+        "fields": {
+            "email": "neki1@admin.com",
+            "password": "pbkdf2_sha256$216000$fXPZyKBKWlR7$vd2TOqmwzDrbgfrGPCAyeyJ3a8LClDl7HsVEqxOQBIM=",
+            "role": 3,
+            "isIrregular": 0
+        }
+    },
+    {
+        "model": "application.AppUser",
+        "pk": 4,
+        "fields": {
+            "email": "neki1@mentor.com",
+            "password": "pbkdf2_sha256$216000$fXPZyKBKWlR7$vd2TOqmwzDrbgfrGPCAyeyJ3a8LClDl7HsVEqxOQBIM=",
+            "role": 2,
+            "isIrregular": 0
+        }
+    },
+    {
+        "model": "application.Course",
+        "pk": 4,
+        "fields": {
+            "name": "Objektno orijentirano programiranje",
+            "code": "SIT201",
+            "program": "Programming",
+            "points": "6",
+            "regularSemester": "4",
+            "irregularSemester": "5",
+            "optional": true
+        }
+    },
+    {
+        "model": "application.Course",
+        "pk": 3,
+        "fields": {
+            "name": "Digitalna tehnika",
+            "code": "SIT101",
+            "program": "All",
+            "points": "9999",
+            "regularSemester": "1",
+            "irregularSemester": "3",
+            "optional": false
+        }
+    },
+    {
+        "model": "application.Course",
+        "pk": 2,
+        "fields": {
+            "name": "Uvod u programiranje",
+            "code": "SIT202",
+            "program": "All",
+            "points": "6",
+            "regularSemester": "1",
+            "irregularSemester": "1",
+            "optional": false
+        }
+    },
+    {
+        "model": "application.Course",
+        "pk": 1,
+        "fields": {
+            "name": "Arhitektura osobnih racunala",
+            "code": "SIT215",
+            "program": "Networking",
+            "points": "6",
+            "regularSemester": "5",
+            "irregularSemester": "6",
+            "optional": true
+        }
+    },
+    {
+        "model": "application.Course",
+        "pk": 5,
+        "fields": {
+            "name": "Strukture podataka i algoritmi",
+            "code": "SIT202",
+            "program": "Programming",
+            "points": "6",
+            "regularSemester": "4",
+            "irregularSemester": "5",
+            "optional": true
+        }
+    }
+]
+
