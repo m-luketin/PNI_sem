@@ -1,11 +1,13 @@
 {% extends "application/base.html" %}
 {% block content %}
     <h3>Home Page</h3>
+    
     {% for appUser in content %}
-        <h3>{{ appUser.email }}</h3>
-        {{ appUser.role.name }}
-        {% if appUser.status != 'none' %}
-            {{ appUser.status }}
+        <br>
+        <b>{{ appUser.email }}</b> {{ appUser.role.name }}
+        {% if appUser.isIrregular %}
+            (Irregular)
         {% endif %}
+        <br>
     {% endfor %}
 {% endblock content %}

@@ -40,6 +40,46 @@
         }
     },
     {
+        "model": "application.AppUser",
+        "pk": 10,
+        "fields": {
+            "email": "neki2@mentor.com",
+            "password": "pbkdf2_sha256$216000$fXPZyKBKWlR7$vd2TOqmwzDrbgfrGPCAyeyJ3a8LClDl7HsVEqxOQBIM=",
+            "role": 2,
+            "isIrregular": 0
+        }
+    },
+    {
+        "model": "application.AppUser",
+        "pk": 11,
+        "fields": {
+            "email": "neki3@mentor.com",
+            "password": "pbkdf2_sha256$216000$fXPZyKBKWlR7$vd2TOqmwzDrbgfrGPCAyeyJ3a8LClDl7HsVEqxOQBIM=",
+            "role": 2,
+            "isIrregular": 0
+        }
+    },
+    {
+        "model": "application.AppUser",
+        "pk": 12,
+        "fields": {
+            "email": "neki4@mentor.com",
+            "password": "pbkdf2_sha256$216000$fXPZyKBKWlR7$vd2TOqmwzDrbgfrGPCAyeyJ3a8LClDl7HsVEqxOQBIM=",
+            "role": 2,
+            "isIrregular": 0
+        }
+    },
+    {
+        "model": "application.AppUser",
+        "pk": 14,
+        "fields": {
+            "email": "neki5@mentor.com",
+            "password": "pbkdf2_sha256$216000$fXPZyKBKWlR7$vd2TOqmwzDrbgfrGPCAyeyJ3a8LClDl7HsVEqxOQBIM=",
+            "role": 2,
+            "isIrregular": 0
+        }
+    },
+    {
         "model": "application.Course",
         "pk": 4,
         "fields": {

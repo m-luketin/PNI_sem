@@ -32,25 +32,24 @@
             <div class="collapse navbar-collapse" id="navbarToggle">
               <div class="navbar-nav mr-auto">
                                 
-                {% if user.is_authenticated and user.role.name == 'Administrator' %}
-                <a class="nav-item nav-link" href="/">Home</a>
-                <a class="nav-item nav-link" href="{% url 'courses' %}">Courses</a>
-                <a class="nav-item nav-link" href="{% url 'students' %}">Students</a>
-                <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+                {% if user.is_authenticated and user.role.id == 3 %}
+                  <a class="nav-item nav-link" href="{% url 'courses' %}">Courses</a>
+                  <a class="nav-item nav-link" href="{% url 'mentors' %}">Mentors</a>
+                  <a class="nav-item nav-link" href="{% url 'students' %}">Students</a>
+                  <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
 
-                {% elif user.is_authenticated and user.role.name == 'Mentor' %}
-                <a class="nav-item nav-link" href="/">Home</a>
-                <a class="nav-item nav-link" href="{% url 'courses' %}">Courses</a>
-                <a class="nav-item nav-link" href="{% url 'students' %}">Students</a>
-                <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+                {% elif user.is_authenticated and user.role.id == 2 %}
+                  <a class="nav-item nav-link" href="{% url 'courses' %}">Courses</a>
+                  <a class="nav-item nav-link" href="{% url 'students' %}">Students</a>
+                  <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
 
                 {% elif  user.is_authenticated %} 
-                <a class="nav-item nav-link" href="/studentEdit/{{ user.email }}">Upisni List</a>
-                <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+                  <a class="nav-item nav-link" href="/studentEdit/{{ user.email }}">Upisni List</a>
+                  <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
 
                 {% else %}
-                <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-                <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+                  <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                  <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
                 {% endif %}
 
               </div>

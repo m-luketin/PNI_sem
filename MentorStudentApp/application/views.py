@@ -1,3 +1,4 @@
+from users.forms import AppUserForm
 from django.shortcuts import render, redirect
 from .models import AppUser, Course, AppUserCourse
 from django.contrib.auth.decorators import login_required
@@ -38,7 +39,26 @@ def courseEdit(request, course):
         'course': course
     }
     return render(request, 'application/courseEdit.html', context)
-       
+
+@login_required
+def addCourse(request):
+
+    if request.method == 'POST':
+        form = CourseForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'course uspješno dodan!')
+            return redirect('courses')
+    else:
+        form = CourseForm()
+
+    context = {
+        'form': form,
+        'course': course
+    }
+
+    return render(request, 'application/addCourse.html', context)
+
 @login_required
 def studentEdit(request, appUser):
     content ={
@@ -48,6 +68,44 @@ def studentEdit(request, appUser):
     }
     appUser = AppUser.objects.filter(email=appUser).first()
     return render(request, 'application/studentEdit.html', content)
+
+
+@login_required
+def addStudent(request):
+
+    if request.method == 'POST':
+        form = AppUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'appUser uspješno dodan!')
+            return redirect('students')
+    else:
+        form = AppUserForm()
+
+    context = {
+        'form': form
+    }
+
+    return render(request, 'application/addStudent.html', context)
+
+@login_required
+def mentorEdit(request, appUser):
+    mentor = AppUser.objects.filter(email=appUser).first()
+    data={"email": appUser}
+
+    if request.method == 'POST':
+        form = AppUserForm(request.POST, instance=appUser)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'mentor uspješno promijenjen!')
+            return redirect('mentors')
+    else:
+        form = AppUserForm(initial=data)
+    context = {
+        'form': form,
+        'mentor': mentor
+    }
+    return render(request, 'application/mentorEdit.html', context)
 
 @login_required
 def upisniList(request, appUser):
@@ -120,10 +178,19 @@ def passed(request, pk, cpk):
 @login_required
 def students(request):
     content = {
-        'title': "Studenti",
+        'title': "Students",
         'content': AppUser.objects.all()
     }
     return render(request, 'application/students.html', content)
+
+
+@login_required
+def mentors(request):
+    content = {
+        'title': "Mentors",
+        'content': AppUser.objects.all()
+    }
+    return render(request, 'application/mentors.html', content)
 
 @login_required
 def courses(request):

@@ -1,9 +1,12 @@
 {% extends "application/base.html" %}
 {% block content %}
-    <h1>Lista studenata:</h1>
+    <h1>Students:</h1>
     {% for appUser in content %}
-        {% if appUser.role.name != "Mentor" %}
+        {% if appUser.role.id == 1 %}
             {{ appUser.email }} &nbsp; <a class="btn btn-outline-secondary" href="/studentEdit/{{ appUser.email }}">Upisni List</a>   <br>
         {% endif %}
     {% endfor %}
+    {% if user.role.id == 3 %}
+        <a href="/addStudent"><b>+ Add student</b><a>
+    {% endif %}
 {% endblock content %}
